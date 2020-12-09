@@ -1,0 +1,99 @@
+{
+  
+  "name": "flutter course",
+  "description": "",
+"topics":[
+    {
+      "name": "Scaffold and Appbar",
+      "description": "",
+      "resources": [
+          {
+              "name": "welcome to flutter course",
+              "description":"ح نتكلم عن مقدمه صغيره في فلتر",
+              "url": "https://youtu.be/EQvSj-Q8raE",
+              "type": "Video",
+              "minutesToComplete": 20
+          }
+      ]
+    },
+
+    {
+      "name": "Scaffold",
+      "description": "",
+      "resources": [
+          {
+              "name": "First Code",
+              "description":"ح نشوف مع بعض كيف نكتب اول كود لينا في فلتر",
+              "url": "https://youtu.be/5_AVewGQ4U0",
+              "type": "Video",
+              "minutesToComplete": 23
+          },
+
+          {
+            "name": "Scaffold(Appbar and Body)",
+            "description":" ح نتعرف على القالب و كيف نعمل بيهو صفحات",
+            "url": "https://youtu.be/ybs_2TOtzJo",
+            "type": "Video",
+            "minutesToComplete": 17
+        }
+
+      ]
+    },
+
+   
+
+    {
+      "name": "Text",
+      "description": "",
+      "resources": [
+          {
+              "name": "Text and Fonts",
+              "description":"ح نلعب حبه مع الكلمات و نغير الخط و اللون",
+              "url": "https://youtu.be/9Pp5IzCLX_Y",
+              "type": "Video",
+              "minutesToComplete": 5
+          },
+
+          {
+            "name": "Icons",
+            "description":"ما هو او كيف بجمل لينا التطبيق",
+            "url": "https://youtu.be/IgxfTgTNR4I",
+            "type": "Video",
+              "minutesToComplete": 10
+        }
+
+        ,{
+          "name": "TextField",
+          "description":"",
+          "url": "https://youtu.be/BrYdsJAzhLw",
+          "type": "Video",
+          "minutesToComplete": 14
+      }
+      ]
+    },
+
+    {
+      "name": "Layout widgets",
+      "description": "",
+      "resources": [
+          {
+              "name": "Column and Row",
+              "description":"",
+              "url": "https://youtu.be/xGEl1MdKIHY",
+              "type": "Video",
+              "minutesToComplete": 6
+          },
+
+          {
+            "name": "Login Page",
+            "description":"",
+            "url": "https://youtu.be/fyvz-XsNt6Y",
+            "type": "Video",
+            "minutesToComplete": 21
+        }
+
+      ]
+    }
+
+  ]
+}
