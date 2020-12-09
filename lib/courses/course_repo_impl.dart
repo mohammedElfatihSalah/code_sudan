@@ -11,7 +11,7 @@ import 'package:parse_server_sdk/parse_server_sdk.dart';
 class CourseRepoImpl extends ICoursesRepo {
   @override
   Future<List<Course>> getAllCourses() async {
-    // added a new feature
+    // added a new feature1
     ParseResponse response = await ParseObject('Course').getAll();
     List<Course> courses = List();
     if (response.success) {
