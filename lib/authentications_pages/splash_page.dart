@@ -1,3 +1,6 @@
+import 'package:app_inter_2/authentication/nodejs-authentication/node_js_authentication.dart';
+import 'package:app_inter_2/authentication/parse-sdk-authentication/authentication.dart';
+import 'package:app_inter_2/authentication/authentication-interface/i_authentication.dart';
 import 'package:app_inter_2/authentication/user.dart';
 import 'package:app_inter_2/authentications_pages/login_page.dart';
 import 'file:///C:/Users/hp/AndroidStudioProjects/app_inter_2/lib/home/home_page.dart';
@@ -11,14 +14,15 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  void _init() async {
-    ParseUser user = await ParseUser.currentUser();
+  IAuthentication authentication = NodeJsAuthentication();
 
+  void _init() async {
+    User user = await authentication.currentUser();
     print(user);
     if (user != null) {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => HomePage(
-                user: User.instance(user),
+                user: user,
               )));
     } else {
       Navigator.of(context).pushReplacement(
@@ -28,7 +32,6 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _init();
   }

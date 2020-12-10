@@ -1,6 +1,7 @@
-import 'package:app_inter_2/authentication/authentication.dart';
+import 'package:app_inter_2/authentication/nodejs-authentication/node_js_authentication.dart';
+import 'package:app_inter_2/authentication/parse-sdk-authentication/authentication.dart';
 import 'package:app_inter_2/authentication/authentication_response.dart';
-import 'package:app_inter_2/authentication/i_authentication.dart';
+import 'package:app_inter_2/authentication/authentication-interface/i_authentication.dart';
 import 'package:app_inter_2/authentication/user.dart';
 import 'package:app_inter_2/authentications_pages/widgets/eye_invisibility.dart';
 import 'package:app_inter_2/localization/Demo.dart';
@@ -28,7 +29,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  final IAuthentication authentication = ParseSdkAuthenticationImpl();
+  final IAuthentication authentication = NodeJsAuthentication();
 
   _signUp() async {
     setState(() {
@@ -53,7 +54,8 @@ class _RegisterPageState extends State<RegisterPage> {
       showDialog(
           context: context,
           builder: (context) => AlertDialog(
-                title: Text(DemoLocalizations.of(context).translate('process_is_success')),
+                title: Text(DemoLocalizations.of(context)
+                    .translate('process_is_success')),
                 content: Text(
                     DemoLocalizations.of(context).translate('account_created')),
                 actions: [

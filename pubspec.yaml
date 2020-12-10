@@ -33,6 +33,7 @@ dependencies:
   liquid_progress_indicator: ^0.3.2
   percent_indicator: ^2.1.8
   webview_flutter: ^1.0.7
+  http: ^0.12.2
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -1,6 +1,6 @@
-import 'package:app_inter_2/authentication/authentication.dart';
+import 'package:app_inter_2/authentication/parse-sdk-authentication/authentication.dart';
 import 'package:app_inter_2/authentication/authentication_response.dart';
-import 'package:app_inter_2/authentication/i_authentication.dart';
+import 'package:app_inter_2/authentication/authentication-interface/i_authentication.dart';
 import 'package:app_inter_2/authentication/user.dart';
 import 'package:app_inter_2/authentications_pages/widgets/eye_invisibility.dart';
 import 'package:app_inter_2/localization/Demo.dart';

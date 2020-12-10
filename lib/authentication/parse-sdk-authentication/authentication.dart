@@ -1,5 +1,5 @@
 import 'package:app_inter_2/authentication/authentication_response.dart';
-import 'package:app_inter_2/authentication/i_authentication.dart';
+import 'package:app_inter_2/authentication/authentication-interface/i_authentication.dart';
 import 'package:app_inter_2/authentication/user.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
@@ -41,12 +41,25 @@ class ParseSdkAuthenticationImpl extends IAuthentication {
     ParseUser parseUser = await ParseUser.currentUser();
     ParseResponse parseResponse = await parseUser.logout();
 
-
-    if(parseResponse.success){
-      return AuthenticationResponse(isSuccess: true,isThereError: false, errorMessage: '');
+    if (parseResponse.success) {
+      return AuthenticationResponse(
+          isSuccess: true, isThereError: false, errorMessage: '');
     }
 
+    return AuthenticationResponse(
+        isSuccess: false,
+        isThereError: true,
+        errorMessage: parseResponse.error.message);
+  }
 
-    return AuthenticationResponse(isSuccess:false,isThereError: true, errorMessage: parseResponse.error.message);
+  @override
+  Future<bool> isLoggedIn() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<User> currentUser() async {
+    ParseUser user = await ParseUser.currentUser();
+    return User.instance(user);
   }
 }
