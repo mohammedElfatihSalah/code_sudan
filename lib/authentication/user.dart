@@ -7,6 +7,9 @@ class User {
   final String name;
   final String email;
   final String password;
+  final String token;
+
+  final bool isLogged;
 
   final List<String> enrolledCourses;
   final Map<String, List<String>> completedResources;
@@ -17,7 +20,9 @@ class User {
       this.email,
       this.password,
       this.enrolledCourses,
-      this.completedResources});
+      this.completedResources,
+      this.token,
+      this.isLogged});
 
   bool enrolled(String courseId) {
     return enrolledCourses.contains(courseId);

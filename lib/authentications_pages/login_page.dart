@@ -1,3 +1,4 @@
+import 'package:app_inter_2/authentication/nodejs-authentication/node_js_authentication.dart';
 import 'package:app_inter_2/authentication/parse-sdk-authentication/authentication.dart';
 import 'package:app_inter_2/authentication/authentication_response.dart';
 import 'package:app_inter_2/authentication/authentication-interface/i_authentication.dart';
@@ -29,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
   bool _obsecure = true;
   TextEditingController _userNameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-  IAuthentication authentication = ParseSdkAuthenticationImpl();
+  IAuthentication authentication = NodeJsAuthentication();
 
   //handling both ui and business logic
   _login() async {
@@ -48,14 +49,10 @@ class _LoginPageState extends State<LoginPage> {
       _loading = false;
     });
     if (response.isSuccess) {
-      SharedPrefManager manager = await SharedPrefManager.getInstance();
-      manager.saveUser(user);
-
-      ParseUser parseUser = await ParseUser.currentUser();
-
+      User user = await authentication.currentUser();
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => HomePage(
-                user: User.instance(parseUser),
+                user: user,
               )));
     } else {
       _showDialog(response.errorMessage);

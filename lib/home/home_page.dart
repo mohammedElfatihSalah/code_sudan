@@ -1,3 +1,4 @@
+import 'package:app_inter_2/authentication/nodejs-authentication/node_js_authentication.dart';
 import 'package:app_inter_2/authentication/parse-sdk-authentication/authentication.dart';
 import 'package:app_inter_2/authentication/authentication_response.dart';
 import 'package:app_inter_2/authentication/authentication-interface/i_authentication.dart';
@@ -20,7 +21,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final IAuthentication _authentication = ParseSdkAuthenticationImpl();
+  final IAuthentication _authentication = NodeJsAuthentication();
   bool _loading = false;
 
   _logout() async {
@@ -60,7 +61,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.user.enrolledCourses);
     return LoadingOverlay(
       isLoading: _loading,
       color: Colors.black.withOpacity(.5),

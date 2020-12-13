@@ -18,7 +18,6 @@ class _SplashPageState extends State<SplashPage> {
 
   void _init() async {
     User user = await authentication.currentUser();
-    print(user);
     if (user != null) {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => HomePage(
