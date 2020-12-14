@@ -11,8 +11,8 @@ class User {
 
   final bool isLogged;
 
-  final List<String> enrolledCourses;
-  final Map<String, List<String>> completedResources;
+  List<String> enrolledCourses;
+  Map<String, List<String>> completedResources;
 
   User(
       {this.id,
@@ -22,7 +22,10 @@ class User {
       this.enrolledCourses,
       this.completedResources,
       this.token,
-      this.isLogged});
+      this.isLogged}) {
+    if (enrolledCourses == null) enrolledCourses = [];
+    if (completedResources == null) completedResources = Map();
+  }
 
   bool enrolled(String courseId) {
     return enrolledCourses.contains(courseId);

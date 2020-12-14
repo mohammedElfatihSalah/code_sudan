@@ -1,5 +1,6 @@
-import 'package:app_inter_2/courses/course_repo_impl.dart';
-import 'package:app_inter_2/courses/i_courses_repo.dart';
+import 'package:app_inter_2/courses/nodejs-repo/nodejs_repository.dart';
+import 'package:app_inter_2/courses/parse-sdk-course-repo/course_repo_impl.dart';
+import 'package:app_inter_2/courses/repo-interface/i_courses_repo.dart';
 import 'package:app_inter_2/courses/model/course.dart';
 import 'package:app_inter_2/courses/model/resource.dart';
 import 'package:app_inter_2/courses/model/topic.dart';
@@ -23,7 +24,7 @@ class _TopicsPageState extends State<TopicsPage> {
   bool _loading = false;
   bool _isProgressChanged = false;
   List<Topic> topics = List();
-  final ICoursesRepo repo = CourseRepoImpl();
+  final ICoursesRepo repo = NodeJsCourseRepository();
 
   Map<String, bool> resourceValue = Map();
 

@@ -1,6 +1,7 @@
 import 'package:app_inter_2/authentication/user.dart';
-import 'package:app_inter_2/courses/course_repo_impl.dart';
-import 'package:app_inter_2/courses/i_courses_repo.dart';
+import 'package:app_inter_2/courses/nodejs-repo/nodejs_repository.dart';
+import 'package:app_inter_2/courses/parse-sdk-course-repo/course_repo_impl.dart';
+import 'package:app_inter_2/courses/repo-interface/i_courses_repo.dart';
 import 'package:app_inter_2/courses/widgets/course_widget.dart';
 import 'package:app_inter_2/courses/model/course.dart';
 import 'package:app_inter_2/localization/Demo.dart';
@@ -22,7 +23,7 @@ class _CoursesPageState extends State<CoursesPage> {
   bool _loading = true;
   List<Course> _courses = List();
 
-  ICoursesRepo repo = CourseRepoImpl();
+  ICoursesRepo repo = NodeJsCourseRepository();
 
   _loadAllCourse() async {
     setState(() {
@@ -30,6 +31,7 @@ class _CoursesPageState extends State<CoursesPage> {
     });
 
     _courses = await repo.getAllCourses();
+    print('finished');
 
     setState(() {
       _loading = false;
@@ -44,6 +46,7 @@ class _CoursesPageState extends State<CoursesPage> {
 
   @override
   Widget build(BuildContext context) {
+    print(_courses);
     return LoadingOverlay(
       isLoading: _loading,
       color: Colors.black.withOpacity(0.5),

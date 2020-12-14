@@ -44,6 +44,29 @@ class Course {
         topics: topics);
   }
 
+  static Course instanceNode(Map courseJson) {
+        String id = courseJson['_id'];
+    String name = courseJson['name'];
+    String des = courseJson['description'];
+    String imageUrl = '';
+
+    var imageObject = courseJson['image'];
+
+    if (imageObject != null) {
+      imageUrl = imageObject['url'];
+    }
+
+    List<Topic> topics = List<Topic>.from(
+        courseJson['topics'].map((e) => Topic.instance(e)).toList());
+
+    return Course(
+        name: name,
+        imageUrl: imageUrl,
+        description: des,
+        id: id,
+        topics: topics);
+  }
+
   int getResourcesMinutes(List<String> resourcesName) {
     int sum = 0;
 

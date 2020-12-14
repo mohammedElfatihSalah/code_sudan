@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:app_inter_2/authentication/user.dart';
-import 'package:app_inter_2/courses/i_courses_repo.dart';
+import 'package:app_inter_2/courses/repo-interface/i_courses_repo.dart';
 import 'package:app_inter_2/courses/model/course.dart';
 import 'package:app_inter_2/courses/model/resource.dart';
 import 'package:app_inter_2/courses/model/topic.dart';

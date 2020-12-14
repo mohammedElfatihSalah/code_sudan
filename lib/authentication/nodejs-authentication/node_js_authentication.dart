@@ -10,11 +10,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 const String BASE_URL = 'http:' + '//' + '192.168.43.84:5000/users';
 
 class NodeJsAuthentication extends IAuthentication {
+  //TO DO: change it to use cloud
   @override
   Future<User> currentUser() async {
     SharedPrefManager manager = await SharedPrefManager.getInstance();
     User user = manager.getUser();
-    if (user.isLogged) return user;
+    if (user.isLogged ?? false) return user;
     return null;
   }
 
@@ -34,6 +35,7 @@ class NodeJsAuthentication extends IAuthentication {
       Map bodyJson = jsonDecode(body);
       bool isSuccess = bodyJson['success'];
 
+      print(bodyJson);
       if (isSuccess) {
         String token = bodyJson['token'];
         String id = bodyJson['id'];

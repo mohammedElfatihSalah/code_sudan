@@ -21,14 +21,19 @@ class Topic {
   static instance(Map topicJson) {
     String name = topicJson['name'];
     String descripton = topicJson['description'];
+    String id = topicJson['_id'];
 
     print('>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<');
     List<Resource> resources = List<Resource>.from(
         topicJson['resources'].map((e) => Resource.instance(e)).toList());
     return Topic(
+      id: id,
       name: name,
       description: descripton,
       resources: resources,
     );
   }
+
+  
+
 }

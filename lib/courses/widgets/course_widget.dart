@@ -1,5 +1,6 @@
-import 'package:app_inter_2/courses/course_repo_impl.dart';
-import 'package:app_inter_2/courses/i_courses_repo.dart';
+import 'package:app_inter_2/courses/nodejs-repo/nodejs_repository.dart';
+import 'package:app_inter_2/courses/parse-sdk-course-repo/course_repo_impl.dart';
+import 'package:app_inter_2/courses/repo-interface/i_courses_repo.dart';
 import 'package:app_inter_2/courses/model/user_model.dart';
 import 'package:app_inter_2/courses/topics_page.dart';
 import 'package:app_inter_2/courses/model/course.dart';
@@ -19,7 +20,7 @@ class CourseWidget extends StatelessWidget {
   }
 
   CourseWidget({Key key, this.course, this.model}) : super(key: key);
-  final ICoursesRepo repo = CourseRepoImpl();
+  final ICoursesRepo repo = NodeJsCourseRepository();
   @override
   Widget build(BuildContext context) {
     bool enrolled = model.user.enrolled(course.id);
@@ -27,7 +28,6 @@ class CourseWidget extends StatelessWidget {
 
     if (enrolled) {
       //change
-
       if (model.user.completedResources[course.id] != null) {
         int resourcesMinutes = course
             .getResourcesMinutes(model.user.completedResources[course.id]);
@@ -38,6 +38,7 @@ class CourseWidget extends StatelessWidget {
 
         progress = resourcesMinutes / totalMinutesToCompleteTheCourse;
       }
+
       //end
 
     }

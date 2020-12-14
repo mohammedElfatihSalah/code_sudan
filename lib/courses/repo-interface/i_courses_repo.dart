@@ -3,7 +3,7 @@ import 'package:app_inter_2/courses/model/course.dart';
 import 'package:app_inter_2/courses/model/resource.dart';
 import 'package:app_inter_2/courses/model/topic.dart';
 
-import 'model/user_model.dart';
+import '../model/user_model.dart';
 
 abstract class ICoursesRepo {
   Future<List<Course>> getAllCourses();

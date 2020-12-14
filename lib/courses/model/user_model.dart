@@ -11,6 +11,7 @@ class UserModel extends Model {
   }
 
   void completedResource(String courseId, String resourceName) {
+    print(resourceName);
     if (user.completedResources[courseId] == null)
       user.completedResources[courseId] = [];
     user.completedResources[courseId].add(resourceName);

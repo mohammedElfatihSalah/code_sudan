@@ -17,12 +17,14 @@ class Resource {
       this.minutesToComplete});
 
   static Resource instance(Map resourceJson) {
+    String id = resourceJson['_id'];
     String name = resourceJson['name'];
     String description = resourceJson['description'];
     String type = resourceJson['type'];
     String url = resourceJson['url'];
-    int minutesToComplete = resourceJson['minutesToComplete'];
+    int minutesToComplete = resourceJson['minutes'];
     return Resource(
+        id: id,
         name: name,
         description: description,
         type: type,
