@@ -11,8 +11,27 @@ class NodeJsCourseRepository extends ICoursesRepo {
   static const String BASE_URL = 'http:' + '//' + '192.168.43.84:5000';
   @override
   Future<bool> enroll(UserModel model, Course course) async {
-    model.enroll(course.id);
-    return true;
+    String userId = model.user.id;
+
+    print(BASE_URL + '/users/enroll' + '/' + userId);
+    http.Response response = await http.post(
+        BASE_URL + '/users/enroll' + '/' + userId,
+        body: {'courseId': course.id});
+
+    if (response != null) {
+      String body = response.body;
+      print(response.body);
+      var jsonBody = json.decode(body);
+      if (jsonBody['success']) {
+        model.enroll(course.id);
+
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 
   @override

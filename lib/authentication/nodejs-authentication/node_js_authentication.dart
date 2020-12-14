@@ -15,7 +15,33 @@ class NodeJsAuthentication extends IAuthentication {
   Future<User> currentUser() async {
     SharedPrefManager manager = await SharedPrefManager.getInstance();
     User user = manager.getUser();
-    if (user.isLogged ?? false) return user;
+    if (user.isLogged ?? false) {
+      http.Response response = await http.get(BASE_URL + '/' + user.id);
+
+      if (response != null) {
+        String body = response.body;
+        var jsonBody = json.decode(body);
+        if (jsonBody['success']) {
+          var jsonUser = jsonBody['user'];
+          print(jsonUser);
+          // Map completedResources = Map<String, List<String>();
+
+          List<String> enrolled = List();
+          for (var courseId in jsonUser['enrolledCourses']) {
+            enrolled.add(courseId.toString());
+          }
+          return User(
+              id: jsonUser['_id'],
+              name: jsonUser['name'],
+              email: jsonUser['email'],
+              enrolledCourses: enrolled);
+        } else {
+          return null;
+        }
+      } else {
+        return null;
+      }
+    }
     return null;
   }
 
