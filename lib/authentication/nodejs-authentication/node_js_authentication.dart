@@ -24,6 +24,27 @@ class NodeJsAuthentication extends IAuthentication {
         if (jsonBody['success']) {
           var jsonUser = jsonBody['user'];
           print(jsonUser);
+
+          print('>>>>>>>>>>>> json <<<<<<<<<<<<<<<');
+          var completedResources = jsonUser['completedResources'] ?? [];
+          print(completedResources);
+
+          Map<String, List<String>> completed = Map();
+
+          for (var compl in completedResources) {
+            String courseId = compl['courseId'];
+
+            List<String> resourcesId = List();
+            for (var resourceId in compl['resourcesId']) {
+              resourcesId.add(resourceId.toString());
+            }
+
+            completed[courseId] = resourcesId;
+          }
+
+          print('>>>>>>>>>>>>>>>>> completed <<<<<<<<<<<<<<<');
+          print(completed);
+
           // Map completedResources = Map<String, List<String>();
 
           List<String> enrolled = List();
@@ -34,7 +55,8 @@ class NodeJsAuthentication extends IAuthentication {
               id: jsonUser['_id'],
               name: jsonUser['name'],
               email: jsonUser['email'],
-              enrolledCourses: enrolled);
+              enrolledCourses: enrolled,
+              completedResources: completed);
         } else {
           return null;
         }

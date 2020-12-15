@@ -21,7 +21,6 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  parse_server_sdk: ^2.0.1
   shared_preferences: ^0.5.12+4
   loading_overlay: ^0.2.1
   flutter_spinkit: ^4.1.2+1

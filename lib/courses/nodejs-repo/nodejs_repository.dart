@@ -75,6 +75,24 @@ class NodeJsCourseRepository extends ICoursesRepo {
 
   @override
   Future<bool> saveProgress(UserModel model, Course course) async {
+    String userId = model.user.id;
+    String courseId = course.id;
+    List<String> resourcesId = model.user.completedResources[courseId];
+
+    String encodedResourcesId = json.encode(resourcesId);
+    print(encodedResourcesId);
+    http.Response response = await http
+        .post(BASE_URL + '/users/completedResources/' + userId, body: {
+      'courseId': courseId,
+      'resourcesId': encodedResourcesId,
+    });
+
+    if (response != null) {
+      var jsonBody = json.decode(response.body);
+      return jsonBody['success'];
+    } else {
+      return false;
+    }
     return true;
   }
 }
