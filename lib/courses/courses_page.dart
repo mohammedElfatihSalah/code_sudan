@@ -1,6 +1,5 @@
 import 'package:app_inter_2/authentication/user.dart';
 import 'package:app_inter_2/courses/nodejs-repo/nodejs_repository.dart';
-import 'package:app_inter_2/courses/parse-sdk-course-repo/course_repo_impl.dart';
 import 'package:app_inter_2/courses/repo-interface/i_courses_repo.dart';
 import 'package:app_inter_2/courses/widgets/course_widget.dart';
 import 'package:app_inter_2/courses/model/course.dart';

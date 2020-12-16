@@ -12,7 +12,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:app_inter_2/home/home_page.dart';
-import 'package:parse_server_sdk/parse_server_sdk.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class LoginPage extends StatefulWidget {

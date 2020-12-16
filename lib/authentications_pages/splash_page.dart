@@ -5,7 +5,6 @@ import 'package:app_inter_2/authentications_pages/login_page.dart';
 import 'file:///C:/Users/hp/AndroidStudioProjects/app_inter_2/lib/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class SplashPage extends StatefulWidget {
   @override

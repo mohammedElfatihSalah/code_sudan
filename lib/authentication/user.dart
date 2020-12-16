@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:parse_server_sdk/parse_server_sdk.dart';
-
 class User {
   final String id;
   final String name;
@@ -36,35 +34,6 @@ class User {
     if (completedResources[courseId].isEmpty) return false;
 
     return completedResources[courseId].contains(resourceName);
-  }
-
-  static User instance(ParseUser user) {
-    String name = user.username;
-    String email = user.emailAddress;
-
-    List<String> enrolledCourses = List();
-
-    user.get('enrolledCourses', defaultValue: List()).forEach((element) {
-      enrolledCourses.add(element);
-    });
-    String resources = user.get('completedResources', defaultValue: '{}');
-
-    Map<String, dynamic> completedResourcesd = json.decode(resources);
-    Map<String, List<String>> completedResources = Map();
-    completedResourcesd.forEach((key, value) {
-      List<String> resources = List();
-      value.forEach((element) {
-        resources.add(element);
-      });
-
-      completedResources[key] = resources;
-    });
-
-    return User(
-        name: name,
-        email: email,
-        completedResources: completedResources,
-        enrolledCourses: enrolledCourses);
   }
 
   String toString() {

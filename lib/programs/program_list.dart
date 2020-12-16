@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:app_inter_2/programs/program.dart';
 import 'package:app_inter_2/programs/program_registeration_form.dart';
 import 'package:app_inter_2/programs/repository/i_program_repository.dart';
-import 'package:app_inter_2/programs/repository/program_repository_impl.dart';
+import 'package:app_inter_2/programs/repository/nodejs_programs_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -14,7 +14,7 @@ class ProgramListPage extends StatefulWidget {
 }
 
 class _ProgramListPageState extends State<ProgramListPage> {
-  final IProgramRepository repository = ProgramRepositoryImpl();
+  final IProgramRepository repository = NodeJsProgramRepository();
   bool _loading = false;
   @override
   void initState() {
