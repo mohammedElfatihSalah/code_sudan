@@ -7,7 +7,7 @@ import 'package:app_inter_2/util/shared_pref_manager.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
-const String BASE_URL = 'http:' + '//' + '192.168.43.84:5000/users';
+const String BASE_URL = 'http:' + '//' + '192.168.43.84:80/users';
 
 class NodeJsAuthentication extends IAuthentication {
   //TO DO: change it to use cloud

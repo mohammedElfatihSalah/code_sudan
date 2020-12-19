@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "833649128391",
+    "project_id": "codesudan-df645",
+    "storage_bucket": "codesudan-df645.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833649128391:android:9f5347817d61fb2ca79fe2",
+        "android_client_info": {
+          "package_name": "com.example.app_inter_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833649128391-017mctgauc562e3gkfqf3mi4f08nt8dc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFDQrMJuGHY6KWpmgVsl7dkLbfFhM0KLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833649128391-017mctgauc562e3gkfqf3mi4f08nt8dc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

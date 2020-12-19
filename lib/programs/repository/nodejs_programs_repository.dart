@@ -5,7 +5,7 @@ import 'package:app_inter_2/programs/repository/i_program_repository.dart';
 import 'package:http/http.dart' as http;
 
 class NodeJsProgramRepository extends IProgramRepository {
-  static const String BASE_URL = 'http:' + '//' + '192.168.43.84:5000';
+  static const String BASE_URL = 'http:' + '//' + '192.168.43.84:80';
 
   @override
   Future<List<Program>> getAllPrograms() async {

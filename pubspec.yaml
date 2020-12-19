@@ -33,6 +33,11 @@ dependencies:
   percent_indicator: ^2.1.8
   webview_flutter: ^1.0.7
   http: ^0.12.2
+  flutter_socket_io: ^0.6.0
+  socket_io_client: ^0.9.12
+  firebase_messaging: ^7.0.3
+  flutter_local_notifications: ^3.0.2
+
 
 
   # The following adds the Cupertino Icons font to your application.

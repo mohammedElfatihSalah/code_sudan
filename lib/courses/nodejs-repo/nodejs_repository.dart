@@ -8,7 +8,7 @@ import 'package:app_inter_2/courses/repo-interface/i_courses_repo.dart';
 import 'package:http/http.dart' as http;
 
 class NodeJsCourseRepository extends ICoursesRepo {
-  static const String BASE_URL = 'http:' + '//' + '192.168.43.84:5000';
+  static const String BASE_URL = 'http:' + '//' + '192.168.43.84:80';
   @override
   Future<bool> enroll(UserModel model, Course course) async {
     String userId = model.user.id;
