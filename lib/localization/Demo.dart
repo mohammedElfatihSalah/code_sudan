@@ -51,8 +51,7 @@ class DemoLocalizations {
       'enroll': 'Enroll',
       'resume': 'Resume',
       'save_progress': 'Save Progress',
-      
-      'register_for_our_courses': 'Register in our programs'
+      'register_for_our_courses': 'Programs'
     },
     'ar': {
       'login_page': 'صفحه الدخول',

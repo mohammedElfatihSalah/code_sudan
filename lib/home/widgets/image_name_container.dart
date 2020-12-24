@@ -17,24 +17,39 @@ class ImageNameContainer extends StatelessWidget {
           Container(
             height: 200,
             width: 200,
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(
-                  color: Colors.black.withOpacity(0.5),
-                  offset: Offset(8, 8),
-                  blurRadius: 5),
-            ]),
-            child: Image(
-              image: AssetImage(imageUrl),
-              fit: BoxFit.fill,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.5),
+                    offset: Offset(8, 8),
+                    blurRadius: 5),
+              ],
+            ),
+            child: Stack(
+              alignment: Alignment.center,
+              clipBehavior: Clip.none,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image(
+                    height: 180,
+                    width: 180,
+                    image: AssetImage(imageUrl),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                Positioned(
+                  bottom: 10,
+                  child: Text(
+                    name,
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                )
+              ],
             ),
           ),
-          SizedBox(
-            height: 16,
-          ),
-          Text(
-            name,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          )
         ],
       ),
     );

@@ -3,6 +3,7 @@ import 'package:app_inter_2/authentication/authentication_response.dart';
 import 'package:app_inter_2/authentication/authentication-interface/i_authentication.dart';
 import 'package:app_inter_2/authentication/user.dart';
 import 'package:app_inter_2/authentications_pages/widgets/eye_invisibility.dart';
+import 'package:app_inter_2/home/main_page.dart';
 import 'package:app_inter_2/localization/Demo.dart';
 import 'package:app_inter_2/my_app.dart';
 import 'package:app_inter_2/authentications_pages/register_page.dart';
@@ -49,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
     if (response.isSuccess) {
       User user = await authentication.currentUser();
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => HomePage(
+          builder: (context) => MainPage(
                 user: user,
               )));
     } else {

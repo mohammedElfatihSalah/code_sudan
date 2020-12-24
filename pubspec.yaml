@@ -37,6 +37,7 @@ dependencies:
   socket_io_client: ^0.9.12
   firebase_messaging: ^7.0.3
   flutter_local_notifications: ^3.0.2
+  persistent_bottom_nav_bar: ^3.1.0
 
 
 

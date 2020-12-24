@@ -5,7 +5,6 @@ import 'package:app_inter_2/authentication/user.dart';
 import 'package:app_inter_2/authentication/authentication_response.dart';
 import 'package:app_inter_2/util/shared_pref_manager.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 const String BASE_URL = 'http:' + '//' + '192.168.43.84:80/users';
 

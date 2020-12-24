@@ -2,6 +2,7 @@ import 'package:app_inter_2/authentication/nodejs-authentication/node_js_authent
 import 'package:app_inter_2/authentication/authentication-interface/i_authentication.dart';
 import 'package:app_inter_2/authentication/user.dart';
 import 'package:app_inter_2/authentications_pages/login_page.dart';
+import 'package:app_inter_2/home/main_page.dart';
 import 'file:///C:/Users/hp/AndroidStudioProjects/app_inter_2/lib/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -18,7 +19,7 @@ class _SplashPageState extends State<SplashPage> {
     User user = await authentication.currentUser();
     if (user != null) {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => HomePage(
+          builder: (context) => MainPage(
                 user: user,
               )));
     } else {

@@ -104,22 +104,27 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     connector.connectToServer(() {});
     _initializeNotification();
-    print('initializing cloud messaging');
     _firebaseMessaging.subscribeToTopic("any");
+    _firebaseMessaging.subscribeToTopic("programs");
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
         print("onMessage: $message");
+        print('>>>>>>>>>>>>>under message');
         const AndroidNotificationDetails androidPlatformChannelSpecifics =
             AndroidNotificationDetails('your channel id', 'your channel name',
                 'your channel description',
                 importance: Importance.max,
                 priority: Priority.high,
                 showWhen: false);
+        var notifi = message['notification'];
+        String title = notifi['title'];
+        String body = notifi['body'];
+        print(title);
+        print(body);
         const NotificationDetails platformChannelSpecifics =
             NotificationDetails(android: androidPlatformChannelSpecifics);
-        await flutterLocalNotificationsPlugin.show(
-            0, 'plain title', 'plain body', platformChannelSpecifics,
-            payload: 'item x');
+        await flutterLocalNotificationsPlugin
+            .show(0, title, body, platformChannelSpecifics, payload: 'item x');
       },
       onLaunch: (Map<String, dynamic> message) async {
         print("onLaunch: $message");
@@ -150,74 +155,83 @@ class _HomePageState extends State<HomePage> {
       isLoading: _loading,
       color: Colors.black.withOpacity(.5),
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(DemoLocalizations.of(context).translate('home')),
-          actions: [
-            IconButton(
-                icon: Icon(Icons.logout),
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          content: Text(DemoLocalizations.of(context)
-                              .translate('are_u_sure_to_logout')),
-                          actions: [
-                            FlatButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                  _logout();
-                                },
-                                child: Text(DemoLocalizations.of(context)
-                                    .translate('yes'))),
-                            FlatButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text(
-                                    DemoLocalizations.of(context)
-                                        .translate('no'),
-                                    style: TextStyle(color: Colors.red))),
-                          ],
-                        );
-                      });
-                })
-          ],
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ImageNameContainer(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>
-                              CoursesPage(user: widget.user)));
-                    },
-                    imageUrl: "assets/programming_program.jpg",
-                    name:
-                        DemoLocalizations.of(context).translate('our_programs'))
-              ],
-            ),
-            SizedBox(
-              height: 32,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ImageNameContainer(
-                    imageUrl: 'assets/who_we_Are.png',
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => ProgramListPage()));
-                    },
-                    name: DemoLocalizations.of(context)
-                        .translate('register_for_our_courses'))
-              ],
-            ),
-          ],
+        body: SafeArea(
+          child: Stack(
+            children: [
+              Positioned(
+                right: 0,
+                left: 0,
+                top: 0,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(40),
+                      child: Image(
+                        height: MediaQuery.of(context).size.height * .4,
+                        image: AssetImage(
+                          'assets/home_back_2.png',
+                        ),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Positioned(
+                      top: 32,
+                      right: 32,
+                      child: Text(
+                        'Programming \n path',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Spacer(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ImageNameContainer(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    CoursesPage(user: widget.user)));
+                          },
+                          imageUrl: "assets/courses_2.png",
+                          name: DemoLocalizations.of(context)
+                              .translate('our_programs'))
+                    ],
+                  ),
+                  SizedBox(
+                    height: 32,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ImageNameContainer(
+                          imageUrl: 'assets/who_we_Are.png',
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ProgramListPage()));
+                          },
+                          name: DemoLocalizations.of(context)
+                              .translate('register_for_our_courses'))
+                    ],
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
