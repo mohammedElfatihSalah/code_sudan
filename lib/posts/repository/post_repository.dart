@@ -19,8 +19,8 @@ class PostRepository extends IPostRepository {
         String id = bodyJson['post']['_id'];
         String title = bodyJson['post']['title'];
         String des = bodyJson['post']['description'];
-
-        return Post(id: id, name: title, des: des);
+        String time = bodyJson['post']['time'];
+        return Post(id: id, name: title, des: des, time: time);
       }
       return null;
     } else {
@@ -42,7 +42,8 @@ class PostRepository extends IPostRepository {
         String title = postJson['title'];
         String des = postJson['description'];
 
-        Post post = Post(name: title, des: des, id: id);
+        String time = postJson['time'];
+        Post post = Post(time: time, name: title, des: des, id: id);
         posts.add(post);
         //print(title);
       }
@@ -62,5 +63,37 @@ class PostRepository extends IPostRepository {
     bool isSuccess = json.decode(response.body)['success'] ?? false;
 
     return isSuccess;
+  }
+
+  @override
+  Future<List<Post>> getNewPosts(Post lastPost) async {
+    print(ServerInfo.SERVER_URL + '/' + ServerInfo.GET_NEW_POSTS);
+    print(lastPost);
+    http.Response response = await http.post(
+      ServerInfo.SERVER_URL + '/' + ServerInfo.GET_NEW_POSTS,
+      body: {
+        "time": lastPost.time,
+      },
+    );
+    if (response != null) {
+      var bodyJson = json.decode(response.body);
+      var postsJson = bodyJson['posts'];
+      //print(postsJson);
+      List<Post> posts = [];
+      for (var postJson in postsJson) {
+        String id = postJson['_id'];
+        String title = postJson['title'];
+        String des = postJson['description'];
+        String time = postJson['time'];
+
+        Post post = Post(time: time, name: title, des: des, id: id);
+        posts.add(post);
+        //print(title);
+      }
+
+      return posts;
+    } else {
+      return [];
+    }
   }
 }

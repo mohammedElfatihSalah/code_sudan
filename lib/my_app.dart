@@ -25,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'OpenSans-Regular'),
       locale: _locale,
       localizationsDelegates: [
         DemoLocalizations.delegate,

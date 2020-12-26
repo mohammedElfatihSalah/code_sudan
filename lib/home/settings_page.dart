@@ -18,23 +18,43 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 10,
+        title: Text(
+          'Settings',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+      ),
       body: Center(
         child: ListView(
           children: [
-            ListTile(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => LicensePage(),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => LicensePage(),
+                      ),
+                    );
+                  },
+                  leading: Icon(
+                    Icons.card_membership,
+                    color: Colors.black,
+                    size: 25,
                   ),
-                );
-              },
-              leading: Icon(
-                Icons.card_membership,
-                color: Colors.black,
-                size: 25,
-              ),
-              title: Text('Licenses'),
+                  title: Text('Licenses'),
+                ),
+                Divider(
+                  color: Colors.black,
+                  indent: 75,
+                )
+              ],
             ),
             ListTile(
               onTap: () async {

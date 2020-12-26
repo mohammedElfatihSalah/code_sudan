@@ -1,3 +1,4 @@
+import 'package:app_inter_2/home/widgets/home_sizes.dart';
 import 'package:flutter/material.dart';
 
 class ImageNameContainer extends StatelessWidget {
@@ -15,8 +16,8 @@ class ImageNameContainer extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 200,
-            width: 200,
+            height: HomeSizes.ITEM_HEIGHT,
+            width: HomeSizes.ITEM_HEIGHT,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),

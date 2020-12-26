@@ -3,6 +3,8 @@ import 'package:app_inter_2/authentication/authentication_response.dart';
 import 'package:app_inter_2/authentication/authentication-interface/i_authentication.dart';
 import 'package:app_inter_2/connector.dart';
 import 'package:app_inter_2/courses/courses_page.dart';
+import 'package:app_inter_2/home/widgets/home_appbar.dart';
+import 'package:app_inter_2/home/widgets/home_sizes.dart';
 import 'package:app_inter_2/home/widgets/image_name_container.dart';
 import 'package:app_inter_2/localization/Demo.dart';
 import 'package:app_inter_2/programs/program_list.dart';
@@ -162,39 +164,14 @@ class _HomePageState extends State<HomePage> {
                 right: 0,
                 left: 0,
                 top: 0,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(40),
-                      child: Image(
-                        height: MediaQuery.of(context).size.height * .4,
-                        image: AssetImage(
-                          'assets/home_back_2.png',
-                        ),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Positioned(
-                      top: 32,
-                      right: 32,
-                      child: Text(
-                        'Programming \n path',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                child: HomeAppBar(),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Spacer(),
+                  SizedBox(
+                    height: HomeSizes.APPBAR_HEIGHT - HomeSizes.ITEM_HEIGHT / 2,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -204,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                                 builder: (context) =>
                                     CoursesPage(user: widget.user)));
                           },
-                          imageUrl: "assets/courses_2.png",
+                          imageUrl: "assets/courses_3.png",
                           name: DemoLocalizations.of(context)
                               .translate('our_programs'))
                     ],

@@ -3,6 +3,7 @@ class ServerInfo {
   static const String LOGIN = "users/login";
   static const String CREATE_POST = 'post';
   static const String GET_POSTS = 'post';
+  static const String GET_NEW_POSTS = 'post/refresh';
   static const String PROGRAM = 'program';
   static const String COURSE = 'course';
   static const String USER = 'users';
