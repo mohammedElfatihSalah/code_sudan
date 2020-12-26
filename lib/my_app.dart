@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale _locale = Locale('en', 'US');
+  Locale _locale = Locale('ar', 'SA');
 
   setLocale(Locale locale) {
     setState(() {
@@ -25,7 +25,18 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'OpenSans-Regular'),
+      theme: ThemeData(
+          primaryColor: Colors.blue[200],
+          // scaffoldBackgroundColor: Colors.brown[400],
+
+          buttonTheme: ButtonThemeData(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            buttonColor: Colors.blue,
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(30)))),
       locale: _locale,
       localizationsDelegates: [
         DemoLocalizations.delegate,
