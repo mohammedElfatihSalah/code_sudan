@@ -2,7 +2,7 @@
 
 An app for online courses 
 
-## functionalties
+## Functionalties
 - User can create an account.
 - User can enroll to courses.
 - User can save his\her progress.
@@ -12,6 +12,13 @@ An app for online courses
 - Good looking UI design.
 - Support two languages English\Arabic.
 
+<img src = 'https://github.com/mohammedElfatihSalah/Simple-Calculator-App/blob/master/1.jpg?raw=true' width=200 height=400/>
+
+<img src = 'https://github.com/mohammedElfatihSalah/Simple-Calculator-App/blob/master/2.jpg?raw=true' width=200 height=400/>
+
+<img src = 'https://github.com/mohammedElfatihSalah/Simple-Calculator-App/blob/master/3.jpg?raw=true' width=200 height=400/>
+
+<img src = 'https://github.com/mohammedElfatihSalah/Simple-Calculator-App/blob/master/4.jpg?raw=true' width=200 height=400/>
 
 ## Getting Started
 
