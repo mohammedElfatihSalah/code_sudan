@@ -12,14 +12,28 @@ An app for online courses
 - Good looking UI design.
 - Support two languages English\Arabic.
 
-<img src = 'https://github.com/mohammedElfatihSalah/Simple-Calculator-App/blob/master/1.jpg?raw=true' width=200 height=400/>
 
-<img src = 'https://github.com/mohammedElfatihSalah/Simple-Calculator-App/blob/master/2.jpg?raw=true' width=200 height=400/>
-
-<img src = 'https://github.com/mohammedElfatihSalah/Simple-Calculator-App/blob/master/3.jpg?raw=true' width=200 height=400/>
-
-<img src = 'https://github.com/mohammedElfatihSalah/Simple-Calculator-App/blob/master/4.jpg?raw=true' width=200 height=400/>
-
+<div class = "row">
+  <div class = "col-md-3">
+    <img src = 'https://github.com/mohammedElfatihSalah/code_sudan/blob/master/1.jpg?raw=true' width=200 height=400/>
+  </div>
+  
+  <div class = "col-md-3">
+    <img src = 'https://github.com/mohammedElfatihSalah/code_sudan/blob/master/2.jpg?raw=true' width=200 height=400/>
+  </div>
+  
+  <div class = "col-md-3">
+    <img src = 'https://github.com/mohammedElfatihSalah/code_sudan/blob/master/3.jpg?raw=true' width=200 height=400/>
+  </div>
+  
+  <div class = "col-md-3">
+    <img src = 'https://github.com/mohammedElfatihSalah/code_sudan/blob/master/4.jpg?raw=true' width=200 height=400/>
+  </div>
+  
+  <div class = "col-md-3">
+    <img src = 'https://github.com/mohammedElfatihSalah/code_sudan/blob/master/5.jpg?raw=true' width=200 height=400/>
+  </div>
+</div>
 ## Getting Started
 
 This project is a starting point for a Flutter application.
